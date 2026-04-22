@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #f5f7fa;
+        color: #333;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .navbar-brand,
+      .nav-link {
+        color: #1e3a8a !important;
+        font-weight: 600;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #eaf2ff, #ffffff);
+        padding: 100px 0;
+      }
+
+      .hero img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 6px solid #dbeafe;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title {
+        color: #1e3a8a;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+
+      .card-custom {
+        border: none;
+        border-radius: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        height: 100%;
+      }
+
+      .card-custom:hover {
+        transform: translateY(-5px);
+      }
+
+      .btn-main {
+        background-color: #2563eb;
+        color: white;
+        border-radius: 30px;
+        padding: 10px 25px;
+        border: none;
+      }
+
+      .btn-main:hover {
+        background-color: #1d4ed8;
+      }
+
+      .skill-badge {
+        background-color: #dbeafe;
+        color: #1e3a8a;
+        padding: 10px 15px;
+        border-radius: 20px;
+        display: inline-block;
+        margin: 5px;
+        font-weight: 500;
+      }
+
+      footer {
+        background-color: #ffffff;
+        padding: 30px 0;
+        margin-top: 50px;
+        border-top: 1px solid #ddd;
+      }
+
+      .language-btns button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Portfolio </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about" data-lang="navAbout"
+                >Giới thiệu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills" data-lang="navSkills"
+                >Kỹ năng</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects" data-lang="navProjects"
+                >Dự án</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" data-lang="navContact"
+                >Liên hệ</a
+              >
+            </li>
+          </ul>
+
+          <div class="language-btns ms-3">
+            <button
+              class="btn btn-outline-primary btn-sm"
+              onclick="changeLanguage('vi')"
+            >
+              VI
+            </button>
+            <button
+              class="btn btn-outline-primary btn-sm"
+              onclick="changeLanguage('en')"
+            >
+              EN
+            </button>
+            <button
+              class="btn btn-outline-primary btn-sm"
+              onclick="changeLanguage('ja')"
+            >
+              JP
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 text-center text-lg-start">
+            <h1 class="fw-bold mb-3" data-lang="heroTitle">
+              Xin chào, tôi là sinh viên IT chuyên về Web Development
+            </h1>
+            <p class="lead" data-lang="heroText">
+              Tôi hiện là sinh viên ngành IT tại trường senmon ở Nhật Bản và
+              đang tập trung học về Web Development. Tôi có kinh nghiệm sử dụng
+              HTML, CSS, JavaScript, Bootstrap, Python, Flask và SQLite để xây
+              dựng website và ứng dụng đơn giản. Trong quá trình học, tôi đã
+              thực hiện các dự án như website giới thiệu văn hóa mua sắm Nhật -
+              Việt, portfolio cá nhân và hiện đang hoàn thiện ứng dụng hỗ trợ
+              học từ vựng chuyên ngành IT. Tôi mong muốn phát triển trong lĩnh
+              vực frontend và trở thành kỹ sư có thể tạo ra những dịch vụ dễ sử
+              dụng và thân thiện với người dùng.
+            </p>
+            <a href="#projects" class="btn btn-main mt-3" data-lang="heroBtn"
+              >Xem dự án</a
+            >
+          </div>
+
+          <div class="col-lg-6 text-center mt-4 mt-lg-0">
+            <img src="profile.png" alt="Profile Photo" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center" data-lang="aboutTitle">
+          Giới thiệu
+        </h2>
+        <div class="card card-custom p-4">
+          <p data-lang="aboutText">
+            Tôi là người luôn cố gắng học hỏi và phát triển bản thân mỗi ngày.
+            Trong quá trình học tập và sinh sống tại Nhật Bản, tôi đã rèn luyện
+            được tính kiên trì, khả năng tự học, kỹ năng giao tiếp và tinh thần
+            làm việc nhóm. Ngoài kiến thức về IT, tôi cũng có kinh nghiệm sử
+            dụng Word, Excel và làm việc trong môi trường văn phòng. Tôi mong
+            muốn tiếp tục tích lũy kinh nghiệm thực tế để phát triển lâu dài
+            trong lĩnh vực frontend
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title text-center" data-lang="skillsTitle">
+          Kỹ năng
+        </h2>
+        <div class="text-center">
+          <span class="skill-badge">HTML</span>
+          <span class="skill-badge">CSS</span>
+          <span class="skill-badge">Bootstrap</span>
+          <span class="skill-badge">JavaScript</span>
+          <span class="skill-badge">Flask</span>
+          <span class="skill-badge">SQLite</span>
+          <span class="skill-badge">Python</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center" data-lang="projectTitle">
+          Dự án
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card card-custom p-3">
+              <h4>Portfolio Website</h4>
+              <p data-lang="project1">
+                Website portfolio cá nhân được xây dựng bằng HTML, CSS,
+                JavaScript và Bootstrap, có hỗ trợ nhiều ngôn ngữ và thiết kế
+                responsive .
+              </p>
+              <button
+                class="btn btn-main"
+                data-bs-toggle="modal"
+                data-bs-target="#portfolioModal"
+              >
+                View
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card card-custom p-3">
+              <h4 data-lang="projectlittle2">
+                Website văn hóa mua sắm Việt Nam - Nhật Bản
+              </h4>
+              <p data-lang="project2">
+                Website giới thiệu sự khác biệt trong văn hóa mua sắm giữa Nhật
+                Bản và Việt Nam, được xây dựng bằng HTML, CSS và JavaScript.
+              </p>
+              <button
+                class="btn btn-main"
+                data-bs-toggle="modal"
+                data-bs-target="#shoppingModal"
+              >
+                View
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card card-custom p-3">
+              <h4 data-lang="projectlittle3">
+                Website Tiếng nhật IT cùng mình
+              </h4>
+              <p data-lang="project3">
+                Website hỗ trợ học từ vựng chuyên ngành IT, được xây dựng bằng
+                HTML, CSS và JavaScript, Python, Flask và Sqlalchemy.
+              </p>
+              <button
+                class="btn btn-main"
+                data-bs-toggle="modal"
+                data-bs-target="#stydyModal"
+              >
+                View
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title text-center" data-lang="contactTitle">
+          Liên hệ
+        </h2>
+
+        <div class="card card-custom p-4 mx-auto" style="max-width: 700px">
+          <form action="https://formsubmit.co/thuyanhjapan001@gmail.com" method="POST">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                placeholder="Name"
+                required
+              />
+            </div>
+          
+            <div class="mb-3">
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+          
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                name="message"
+                rows="5"
+                placeholder="Message"
+                required
+              ></textarea>
+            </div>
+          
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="New Portfolio Contact!" />
+            <input type="hidden" name="_template" value="table" />
+
+            <button type="submit" class="btn btn-main" data-lang="contactBtn">
+              Gửi
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container text-center">
+        <p>Thuy Anh Portfolio</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const translations = {
+          vi: {
+            navAbout: 'Giới thiệu',
+            navSkills: 'Kỹ năng',
+            navProjects: 'Dự án',
+            navContact: 'Liên hệ',
+
+            heroTitle: 'Xin chào, tôi là sinh viên IT chuyên về Web Development',
+
+            heroText: 'Tôi hiện là sinh viên ngành IT tại trường senmon ở Nhật Bản và đang tập trung học về Web Development. Tôi có kinh nghiệm sử dụng HTML, CSS, JavaScript, Bootstrap, Python, Flask và SQLite để xây dựng website và ứng dụng đơn giản. Trong quá trình học, tôi đã thực hiện các dự án như website giới thiệu văn hóa mua sắm Nhật - Việt, portfolio cá nhân và hiện đang hoàn thiện ứng dụng hỗ trợ học từ vựng chuyên ngành IT. Tôi mong muốn phát triển trong lĩnh vực frontend và trở thành kỹ sư có thể tạo ra những dịch vụ dễ sử dụng và thân thiện với người dùng.',
+
+            heroBtn: 'Xem dự án',
+
+            aboutTitle: 'Giới thiệu',
+
+            aboutText: 'Tôi là người luôn cố gắng học hỏi và phát triển bản thân mỗi ngày. Trong quá trình học tập và sinh sống tại Nhật Bản, tôi đã rèn luyện được tính kiên trì, khả năng tự học, kỹ năng giao tiếp và tinh thần làm việc nhóm. Ngoài kiến thức về IT, tôi cũng có kinh nghiệm sử dụng Word, Excel và làm việc trong môi trường văn phòng. Tôi mong muốn tiếp tục tích lũy kinh nghiệm thực tế để phát triển lâu dài trong lĩnh vực frontend.',
+
+            skillsTitle: 'Kỹ năng',
+
+            projectTitle: 'Dự án',
+
+            project1: 'Website portfolio cá nhân được xây dựng bằng HTML, CSS, JavaScript và Bootstrap, có hỗ trợ nhiều ngôn ngữ và thiết kế responsive.',
+
+            projectlittle2: 'Website văn hóa mua sắm Việt Nam - Nhật Bản',
+
+            project2: 'Website giới thiệu sự khác biệt trong văn hóa mua sắm giữa Nhật Bản và Việt Nam, được xây dựng bằng HTML, CSS và JavaScript.',
+
+            projectlittle3: 'Website Tiếng nhật IT cùng mình',
+
+            project3: 'Website hỗ trợ học từ vựng chuyên ngành IT, được xây dựng bằng HTML, CSS và JavaScript, Python, Flask và Sqlalchemy.',
+
+            contactTitle: 'Liên hệ',
+
+            contactBtn: 'Gửi',
+
+            modalPortfolioTitle: 'Portfolio Website',
+            modalPortfolioDescLabel: 'Mô tả:',
+            modalPortfolioDesc: 'Đây là website giới thiệu về tôi.',
+            modalPortfolioLangLabel: 'Ngôn ngữ sử dụng:',
+            modalPortfolioFeatureLabel: 'Chức năng:',
+            modalPortfolioFeature1: 'Chuyển trang mượt mà',
+            modalPortfolioFeature2: 'Hỗ trợ nhiều ngôn ngữ',
+            modalPortfolioFeature3: 'Responsive trên điện thoại',
+            modalPortfolioRoleLabel: 'Vai trò:',
+            modalPortfolioRole: 'Tự thiết kế giao diện và code toàn bộ website.',
+            modalPortfolioBtn: 'Xem website',
+
+            modalShoppingTitle: 'Website văn hóa mua sắm',
+            modalShoppingDescLabel: 'Mô tả:',
+            modalShoppingDesc: 'Đây là website giới thiệu sự khác nhau giữa văn hóa mua sắm ở Nhật Bản và Việt Nam.',
+            modalShoppingLangLabel: 'Ngôn ngữ sử dụng:',
+            modalShoppingFeatureLabel: 'Chức năng:',
+            modalShoppingFeature1: 'Chuyển trang mượt mà',
+            modalShoppingFeature2: 'So sánh hình ảnh Nhật - Việt',
+            modalShoppingFeature3: 'Responsive trên điện thoại',
+            modalShoppingRoleLabel: 'Vai trò:',
+            modalShoppingRole: 'Tự thiết kế giao diện và code toàn bộ website.',
+            modalShoppingBtn: 'Xem website',
+
+            modalStudyTitle: 'Ứng dụng học từ vựng IT',
+            modalStudyDescLabel: 'Mô tả:',
+            modalStudyDesc: 'Đây là ứng dụng hỗ trợ học từ vựng tiếng Nhật chuyên ngành IT.',
+            modalStudyLangLabel: 'Ngôn ngữ sử dụng:',
+            modalStudyFeatureLabel: 'Chức năng:',
+            modalStudyFeature1: 'Chuyển trang mượt mà',
+            modalStudyFeature2: 'Hỗ trợ nhiều ngôn ngữ',
+            modalStudyFeature3: 'Tìm kiếm và lưu trữ từ vựng',
+            modalStudyFeature4: 'Responsive trên điện thoại',
+            modalStudyRoleLabel: 'Vai trò:',
+            modalStudyRole: 'Tự thiết kế giao diện và code toàn bộ ứng dụng.',
+            modalStudyFooter: 'Chưa hoàn thành',
+            },
+
+
+            en: {
+              navAbout: 'About',
+              navSkills: 'Skills',
+              navProjects: 'Projects',
+              navContact: 'Contact',
+
+              heroTitle: 'Hello, I am an IT Student Specializing in Web Development',
+
+              heroText: 'I am currently an IT student at a vocational school in Japan, focusing on Web Development. I have experience using HTML, CSS, JavaScript, Bootstrap, Python, Flask, and SQLite to build simple websites and applications. During my studies, I have worked on projects such as a website introducing shopping culture differences between Japan and Vietnam, a personal portfolio website, and I am currently developing an application to support learning IT-related vocabulary. I hope to grow in frontend development and become an engineer who can create user-friendly and accessible services.',
+
+              heroBtn: 'View Projects',
+
+              aboutTitle: 'About Me',
+
+              aboutText: 'I am someone who always tries to learn and improve every day. Through studying and living in Japan, I have developed patience, self-learning skills, communication abilities, and teamwork. In addition to IT knowledge, I also have experience using Word, Excel, and working in an office environment. I would like to continue gaining practical experience and grow in the frontend field.',
+
+              skillsTitle: 'Skills',
+
+              projectTitle: 'Projects',
+
+              project1: 'A personal portfolio website built with HTML, CSS, JavaScript, and Bootstrap, featuring multilingual support and a responsive design.',
+
+              projectlittle2: "Vietnam - Japan Shopping Culture Website",
+
+              project2: 'A website introducing the differences in shopping culture between Japan and Vietnam, built with HTML, CSS, and JavaScript.',
+
+              projectlittle3: "Learn IT Japanese with Me Website",
+
+              project3: 'An application to support learning IT-related vocabulary, built with HTML, CSS, JavaScript, Python, Flask, and SQLAlchemy.',
+
+              contactTitle: 'Contact',
+
+              contactBtn: 'Send',
+
+              modalPortfolioTitle: 'Portfolio Website',
+              modalPortfolioDescLabel: 'Description:',
+              modalPortfolioDesc: 'This is a website introducing myself and my skills.',
+              modalPortfolioLangLabel: 'Technologies Used:',
+              modalPortfolioFeatureLabel: 'Features:',
+              modalPortfolioFeature1: 'Smooth page transitions',
+              modalPortfolioFeature2: 'Multilingual support',
+              modalPortfolioFeature3: 'Responsive design for mobile devices',
+              modalPortfolioRoleLabel: 'Role:',
+              modalPortfolioRole: 'Designed the UI and developed the entire website independently.',
+              modalPortfolioBtn: 'View Website',
+
+              modalShoppingTitle: 'Shopping Culture Website',
+              modalShoppingDescLabel: 'Description:',
+              modalShoppingDesc: 'This website introduces the differences in shopping culture between Japan and Vietnam.',
+              modalShoppingLangLabel: 'Technologies Used:',
+              modalShoppingFeatureLabel: 'Features:',
+              modalShoppingFeature1: 'Smooth page transitions',
+              modalShoppingFeature2: 'Japan-Vietnam image comparison',
+              modalShoppingFeature3: 'Responsive design for mobile devices',
+              modalShoppingRoleLabel: 'Role:',
+              modalShoppingRole: 'Designed the UI and developed the entire website independently.',
+              modalShoppingBtn: 'View Website',
+
+              modalStudyTitle: 'IT Vocabulary Learning App',
+              modalStudyDescLabel: 'Description:',
+              modalStudyDesc: 'This application supports learning Japanese IT-related vocabulary.',
+              modalStudyLangLabel: 'Technologies Used:',
+              modalStudyFeatureLabel: 'Features:',
+              modalStudyFeature1: 'Smooth page transitions',
+              modalStudyFeature2: 'Multilingual support',
+              modalStudyFeature3: 'Search and save vocabulary',
+              modalStudyFeature4: 'Responsive design for mobile devices',
+              modalStudyRoleLabel: 'Role:',
+              modalStudyRole: 'Designed the UI and developed the entire application independently.',
+              modalStudyFooter: 'Currently under development'
+              },
+
+              ja: {
+              navAbout: '自己紹介',
+              navSkills: 'スキル',
+              navProjects: '制作実績',
+              navContact: 'お問い合わせ',
+
+              heroTitle: 'こんにちは、Web開発を学んでいるIT学生です',
+
+              heroText: '私は現在、日本の専門学校でITを学んでおり、Web開発を中心に勉強しています。HTML、CSS、JavaScript、Bootstrap、Python、Flask、SQLiteを使用して、簡単なWebサイトやアプリケーションを制作した経験があります。学習の中では、日本とベトナムの買い物文化の違いを紹介するWebサイトやポートフォリオサイトを制作し、現在はIT専門用語の学習を支援するアプリを開発しています。将来はフロントエンド分野で成長し、使いやすく親しみやすいサービスを作れるエンジニアになりたいと考えています。',
+
+              heroBtn: '制作実績を見る',
+
+              aboutTitle: '自己紹介',
+
+              aboutText: '私は常に学び続け、自分自身を成長させることを大切にしています。日本での勉強や生活を通して、忍耐力、自習力、コミュニケーション能力、そしてチームワークを身につけました。また、ITの知識だけでなく、WordやExcelの使用経験や、事務系の仕事を通したオフィス業務の経験もあります。今後も実務経験を積みながら、フロントエンド分野で成長していきたいと考えています。',
+
+              skillsTitle: 'スキル',
+
+              projectTitle: '制作実績',
+
+              project1: 'HTML、CSS、JavaScript、Bootstrapを使用して制作した個人ポートフォリオサイトです。多言語対応とレスポンシブデザインを実装しています。',
+
+              projectlittle2: "日越ショッピング文化の紹介サイト",
+
+              project2: 'HTML、CSS、JavaScriptを使用して制作した、日本とベトナムの買い物文化の違いを紹介するWebサイトです。',
+
+              projectlittle3: "一緒に学ぶIT日本語サイト",
+
+              project3: 'HTML、CSS、JavaScript、Python、Flask、SQLAlchemyを使用して制作した、IT専門用語の学習を支援するアプリケーションです。',
+
+              contactTitle: 'お問い合わせ',
+
+              contactBtn: '送信',
+
+              modalPortfolioTitle: 'ポートフォリオサイト',
+              modalPortfolioDescLabel: '概要:',
+              modalPortfolioDesc: '自分自身やスキルを紹介するためのポートフォリオサイトです。',
+              modalPortfolioLangLabel: '使用技術:',
+              modalPortfolioFeatureLabel: '機能:',
+              modalPortfolioFeature1: 'スムーズなページ遷移',
+              modalPortfolioFeature2: '多言語対応',
+              modalPortfolioFeature3: 'スマートフォン対応のレスポンシブデザイン',
+              modalPortfolioRoleLabel: '担当:',
+              modalPortfolioRole: '画面設計からコーディングまで担当しました。',
+              modalPortfolioBtn: 'サイトを見る',
+
+              modalShoppingTitle: '買い物文化紹介サイト',
+              modalShoppingDescLabel: '概要:',
+              modalShoppingDesc: '日本とベトナムの買い物文化の違いを紹介するWebサイトです。',
+              modalShoppingLangLabel: '使用技術:',
+              modalShoppingFeatureLabel: '機能:',
+              modalShoppingFeature1: 'スムーズなページ遷移',
+              modalShoppingFeature2: '日本とベトナムの画像比較',
+              modalShoppingFeature3: 'スマートフォン対応のレスポンシブデザイン',
+              modalShoppingRoleLabel: '担当:',
+              modalShoppingRole: '画面設計からコーディングまで担当しました。',
+              modalShoppingBtn: 'サイトを見る',
+
+              modalStudyTitle: 'IT用語学習アプリ',
+              modalStudyDescLabel: '概要:',
+              modalStudyDesc: 'IT分野の日本語専門用語を学習するためのアプリケーションです。',
+              modalStudyLangLabel: '使用技術:',
+              modalStudyFeatureLabel: '機能:',
+              modalStudyFeature1: 'スムーズなページ遷移',
+              modalStudyFeature2: '多言語対応',
+              modalStudyFeature3: '単語の検索と保存機能',
+              modalStudyFeature4: 'スマートフォン対応のレスポンシブデザイン',
+              modalStudyRoleLabel: '担当:',
+              modalStudyRole: '画面設計からコーディングまで担当しました。',
+              modalStudyFooter: '現在開発中'
+              }
+            }
+
+        function changeLanguage(lang) {
+          document.querySelectorAll('[data-lang]').forEach(element => {
+            const key = element.getAttribute('data-lang');
+            element.textContent = translations[lang][key];
+          });
+        }
+    </script>
+
+    <div class="modal fade" id="portfolioModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0">
+          <div class="modal-header">
+            <h5 class="modal-title" data-lang="modalPortfolioTitle">
+              Portfolio Website
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <img
+              src="portfolio.png"
+              class="img-fluid rounded mb-3"
+              alt="Project Image"
+            />
+
+            <p>
+              <strong data-lang="modalPortfolioDescLabel">Mô tả:</strong>
+              <span data-lang="modalPortfolioDesc"> Đây là website giới thiệu về tôi.</span>
+            </p>
+
+            <p>
+              <strong data-lang="modalPortfolioLangLabel">Ngôn ngữ sử dụng:</strong>
+              <span> HTML, CSS, Bootstrap,JavaScript</span>
+            </p>
+
+            <p data-lang="modalPortfolioFeatureLabel"><strong>Chức năng:</strong></p>
+            <ul>
+              <li data-lang="modalPortfolioFeature1">Chuyển trang mượt mà</li>
+              <li data-lang="modalPortfolioFeature2">Hỗ trợ nhiều ngôn ngữ</li>
+              <li data-lang="modalPortfolioFeature3">Responsive trên điện thoại</li>
+            </ul>
+
+            <p>
+              <strong data-lang="modalPortfolioRoleLabel">Vai trò:</strong> 
+              <span data-lang="modalPortfolioRole"> Tự thiết kế giao diện và code toàn bộ
+              website.</span>
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <a
+              href="#"
+              target="_blank"
+              class="btn btn-main"
+              data-lang="modalPortfolioBtn"
+            >
+              Xem website
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="shoppingModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0">
+          <div class="modal-header">
+            <h5 class="modal-title" data-lang="modalShoppingTitle">Văn hóa mua sắm Website</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <img
+              src="vanhoa.png"
+              class="img-fluid rounded mb-3"
+              alt="Project Image"
+            />
+
+            <p>
+              <strong data-lang="modalShoppingDescLabel">Mô tả:</strong> 
+              <span data-lang="modalShoppingDesc">Đây là website giới thiệu sự khác nhau
+              giữa văn hóa mua sắm ở Nhật Bản và Việt Nam.</span>
+            </p>
+
+            <p><strong data-lang="modalShoppingLangLabel">Ngôn ngữ sử dụng:</strong> 
+              <span data-lang="modalShoppingLang">HTML, CSS, JavaScript</span>
+            </p>
+
+            <p><strong data-lang="modalShoppingFeatureLabel">Chức năng:</strong></p>
+            <ul>
+              <li data-lang="modalShoppingFeature1">Chuyển trang mượt mà</li>
+              <li data-lang="modalShoppingFeature2">So sánh hình ảnh Nhật - Việt</li>
+              <li data-lang="modalShoppingFeature3">Responsive trên điện thoại</li>
+            </ul>
+
+            <p>
+              <strong data-lang="modalShoppingRoleLabel">Vai trò:</strong>
+              <span data-lang="modalShoppingRole"> Tự thiết kế giao diện và code toàn bộ
+              website.</span>
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <a
+              href="https://thuyanh1508.github.io/Vietnamese-and-Japanese-shopping-culture/"
+              target="_blank"
+              class="btn btn-main"
+              data-lang="modalShoppingBtn"
+            >
+              Xem website
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="stydyModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0">
+          <div class="modal-header">
+            <h5 class="modal-title" data-lang="modalStudyTitle">Ứng dụng học từ vựng IT</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <img
+              src="ITbox.png"
+              class="img-fluid rounded mb-3"
+              alt="Project Image"
+            />
+
+            <p>
+              <strong data-lang="modalStudyDescLabel">Mô tả:</strong>
+              <span data-lang="modalStudyDesc"> Đây là ứng dụng hỗ trợ học từ vựng tiếng
+              Nhật chuyên ngành IT.</span>
+            </p>
+
+            <p>
+              <strong data-lang="modalStudyLangLabel">Ngôn ngữ sử dụng:</strong> 
+              <span>HTML, CSS, JavaScript, Python,
+              Flask, SQLAlchemy</span>
+            </p>
+
+            <p><strong data-lang="modalStudyFeatureLabel">Chức năng:</strong></p>
+            <ul>
+              <li data-lang="modalStudyFeature1">Chuyển trang mượt mà</li>
+              <li data-lang="modalStudyFeature2">Hỗ trợ nhiều ngôn ngữ</li>
+              <li data-lang="modalStudyFeature3">Tìm kiếm và lưu trữ từ vựng</li>
+              <li data-lang="modalStudyFeature4">Responsive trên điện thoại</li>
+            </ul>
+
+            <p>
+              <strong data-lang="modalStudyRoleLabel">Vai trò:</strong>
+              <span data-lang="modalStudyRole"> Tự thiết kế giao diện và code toàn bộ
+              ứng dụng.</span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <p data-lang="modalStudyFooter">Chưa hoàn thành</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
